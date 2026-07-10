@@ -8,6 +8,7 @@ class RepositoryState(TypedDict):
     language: str
     default_branch: str
     readme: str
+    directory_tree: str
 
 
 class RepositoryUnderstandingState(TypedDict):
@@ -17,11 +18,17 @@ class RepositoryUnderstandingState(TypedDict):
     beginner_explanation: str
 
 
+class ArchitectureState(TypedDict):
+    architecture_summary: str
+    main_modules: list[dict]
+    entry_points: list[str]
+    reading_order: list[str]
+
+
 class ExecutionState(TypedDict):
     current_stage: str
     status: str
     error: NotRequired[str]
-
 
 
 class GraphState(TypedDict):
@@ -29,5 +36,9 @@ class GraphState(TypedDict):
 
     repository: RepositoryState
     repository_understanding: RepositoryUnderstandingState
-
+    architecture: ArchitectureState
+    issue_intelligence: dict
+    plan: dict
+    learning_path: dict
+    report: dict
     execution: ExecutionState
